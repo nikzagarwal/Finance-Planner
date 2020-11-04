@@ -114,15 +114,45 @@ function calculateloan() {
   goal.textContent = "Loan Tenure : " + y;
   y=Math.floor(y*12);
   var goal = document.getElementById("eC");
-  goal.textContent = "Interest Rate : " + r;
+  goal.textContent = "Interest Rate : " + r+"%";
   r=r/1200;
   var install=(amt*r*((1+r)**y)/(((1+r)**y)-1)).toFixed(2);
   var goal = document.getElementById("eF");
   goal.textContent = "Total Amount paid : " + (install*y).toFixed(2);
   var goal = document.getElementById("eD");
-  goal.textContent = "Total Interest paid : " + (install*y-amt).toFixed(2) +"%";
+  goal.textContent = "Total Interest paid : " + (install*y-amt).toFixed(2) ;
 
   var goal = document.getElementById("eE");
   goal.textContent = "Monthly Installment : " + install;
+
+}
+
+
+function calculatesip() {
+  if (!document.detail.sipamount.value == "" && !document.detail.tenure.value == "" && !document.detail.irate.value == "")
+    document.getElementById("result").style.display = "block";
+
+  var amt = document.getElementById("sipamount").value;
+  var y = parseFloat(document.getElementById("tenure").value);
+  var r = parseFloat(document.getElementById("irate").value);
+
+
+  var goal = document.getElementById("eA");
+  goal.textContent = "Monthly Installment: " + amt;
+
+  var goal = document.getElementById("eB");
+  goal.textContent = "Investment Tenure : " + y;
+  y=Math.floor(y*12);
+  var goal = document.getElementById("eC");
+  goal.textContent = "Interest Rate : " + r +"%";
+  r=r/1200;
+  
+  var finalamt=(amt*((1+r)**y-1)*(1+r)/r).toFixed(2);
+
+  var goal = document.getElementById("eD");
+  goal.textContent = "Total Interest earned : " + (finalamt-amt).toFixed(2) ;
+
+  var goal = document.getElementById("eE");
+  goal.textContent = "Amount Accumulated : " + finalamt;
 
 }

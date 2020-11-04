@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finance Planner</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <!-- Header begins -->
+    <div class="header">
+        <a href="/Finance-Planner/">
+            <h1>Finance Planner</h1>
+        </a>
+    </div>
+    <div class="topnav" id="myTopnav">
+        <!-- <div class="navbar-header">
+            <a class="navbar-brand " style="font-size: xx-large;" href="#">Finance Planner</a>
+        </div> -->
+        <a href="/Finance-Planner/">Goal Planner</a>
+        <a href="/Finance-Planner/emi.html" >Emi Calculator</a>
+        <a href="/Finance-Planner/sip.html" class="active">Sip Calculator</a>
+        <a href="/Finance-Planner/retirement.html">Retirement Planner</a>
+        <a href="javascript:void(0);" class="icon" onclick="header()">
+            <i class="fa fa-bars"></i>
+        </a>
+
+    </div>
+    <!--header ends-->
+
+    <!--section 1-->
+    <section>
+        <div class="goalbox">
+            <h1>Sip Calculator</h1>
+            <p>" In this section you can choose your monthly installment , annual interest rate and investment tenure,
+                and we will show you total amount accumulated along with interest amount. "
+            </p>
+        </div>
+        <div class="container">
+            <form name="detail" action="#result">
+
+                <div class="row">
+                    <div class="col-50">
+                        <label for="sipamt">Monthly Installment</label>
+                    </div>
+                    <div class="col-50">
+                        <input type="text" id="sipamount" name="sipamount " placeholder="Select monthly installment..."
+                            required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-50">
+                        <label for="tenure">Investment Tenure</label>
+                    </div>
+                    <div class="col-50">
+                        <input type="text" id="tenure" name="tenure" placeholder="Investment tenure (in years)..." required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-50">
+                        <label for="rate">Annual Interest Rate</label>
+                    </div>
+                    <div class="col-50">
+                        <input type="text" id="irate" name="irate" placeholder="Interest rate..." required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <input type="button" value="Calculate Now" onclick="calculatesip()" />
+                </div>
+            </form>
+        </div>
+        <div id="result" class="resultsip">
+            <div class="emi" >
+                <h1>Sip Details</h1>
+                <p class="title" id="eA">Monthly Installment:</p>
+                <p class="title3" id="eB">Investment Tenure:</p>
+                <p id="eC"> Interest Rate : </p>
+                <p id="eD" class="title"> Interest earned: </p>
+                <p><button id="eE">Amount Accumulated:</button></p>
+            </div>
+        </div>
+
+
+    </section>
+    <!-- End of goal section  -->
+    <br><br>
+    <!-- Footer section  -->
+    <footer class="footer">
+        <p>Disclaimer : All the interest rates considered here are average rates over the years and in good case
+            scenerio</p>
+        <div className="copyrights">
+            <div className="container">
+                <div className="footer-distributed">
+                    <div className="footer-left">
+                        <p className="footer-company-name">&copy; 2020 <a href="/Finance-Planner/"> Finance Planner </a></p>
+                    </div>
+
+                    <div className="footer-right">
+                        <form method="get" action="#">
+                            <i className="fa fa-envelope-o"></i>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<!-- End Of body section  -->
+
+</html>
