@@ -156,3 +156,44 @@ function calculatesip() {
   goal.textContent = "Amount Accumulated : " + finalamt;
 
 }
+
+function calculate() {
+  if (!document.detail.amount.value == "" && !document.detail.cage.value == "" && !document.detail.rage.value == "")
+    document.getElementById("result").style.display = "block";
+
+  var amt = document.getElementById("amount").value;
+  var cage = parseFloat(document.getElementById("cage").value);
+  var rage = parseFloat(document.getElementById("rage").value);
+
+  var goal = document.getElementById("eA");
+  goal.textContent = "Current Monthly Expense : " + amt;
+
+  var goal = document.getElementById("eB");
+  goal.textContent = "Current Age : " + cage;
+  
+  var goal = document.getElementById("eC");
+  goal.textContent = "Retirement Age : " + rage;
+  
+  var exp=amt*(1+0.06)**(rage-cage);
+
+  var goal = document.getElementById("eD");
+  goal.textContent = "Monthly Expense at age of " +rage+ " at 6% inflation : " + (exp).toFixed(2) ;
+
+  var totalamt=0;
+  for(var i=rage;i<=80;i++)
+  {
+    // console.log(exp);
+    totalamt+=exp*12;
+    exp=exp*1.02;
+  } 
+  var goal = document.getElementById("eE");
+  goal.textContent = "Total money required from age "+rage+" till age of 80 :" + totalamt.toFixed(2);
+  r=0.08/12;
+  y=(rage-cage)*12;
+  var monthlyamt=(totalamt/(((1+r)**y-1)*(1+r)/r)).toFixed(2);
+  var goal = document.getElementById("eF");
+  goal.textContent = "Monthly investment required at avg(8%) interest till retirement and 4% after that : " + monthlyamt;
+
+  
+
+}

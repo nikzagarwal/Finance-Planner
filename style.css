@@ -276,3 +276,28 @@ input[type=text], select, textarea{
   font-size: 22px;
   color: black;
 }
+
+
+/*for sip*/
+
+.resultsip{
+  display:none;
+}
+
+/*for retirement*/
+#note{
+  text-align: center;
+  border: 0.1cm;
+  border-style: dashed;
+  padding :30px;
+  margin: 30px;
+  font-size: larger;
+  font-weight: 700;
+  color: red;
+  border-color: #000;
+}
+.resultage{
+  display:none;
+}
+
+
