@@ -158,6 +158,13 @@ input[type=text], select, textarea{
     }
   }
 
+  #stepsip{
+    display: none;
+  }
+  #ss{
+    margin: 20px;
+    cursor: pointer;
+  }
 /*end of goal forms*/
 
 /*Goal result*/

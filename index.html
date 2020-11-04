@@ -17,7 +17,9 @@
 <body>
     <!-- Header begins -->
     <div class="header">
-       <a href="/index.html"> <h1>Finance Planner</h1></a>
+        <a href="/index.html">
+            <h1>Finance Planner</h1>
+        </a>
     </div>
     <div class="topnav" id="myTopnav">
         <!-- <div class="navbar-header">
@@ -30,7 +32,7 @@
         <a href="javascript:void(0);" class="icon" onclick="header()">
             <i class="fa fa-bars"></i>
         </a>
-        
+
     </div>
     <!--header ends-->
 
@@ -38,8 +40,9 @@
     <section>
         <div class="goalbox">
             <h1>Goal Planner</h1>
-            <p>" In this section you can choose your goal which might be short, medium or long term 
-                and goal amount and we will show you Number of Years required to accumulate money by different investment options
+            <p>" In this section you can choose your goal which might be short, medium or long term
+                and goal amount and we will show you Number of Years required to accumulate money by different
+                investment options
                 along with risk factor and returns "
             </p>
             <br>
@@ -64,8 +67,8 @@
                         <label for="amt">Goal Amount</label>
                     </div>
                     <div class="col-50">
-                        <input type="text" id="goalamount" name="goalamount "
-                            placeholder="Select Goal Amount..." required>
+                        <input type="text" id="goalamount" name="goalamount " placeholder="Select Goal Amount..."
+                            required>
                     </div>
                 </div>
                 <div class="row">
@@ -76,8 +79,24 @@
                         <select id="type" name="type">
                             <option value="One-Time">One Time</option>
                             <option value="Sip">Monthly Sip</option>
-                            <option value="Step-up-Sip">Step up Sip</option>
+                            <option value="Step-Sip"> Step up Sip</option>
                         </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-50">
+                        <label for="buton">Select if investment type is step-up-sip</label>
+                    </div>
+                    <div class="col-50">
+                        <input type="radio" id="ss" onclick="sipcall()">Step-up sip</button>
+                    </div>
+                </div>
+                <div class="row" id="stepsip">
+                    <div class="col-50">
+                        <label for="sip">Sip annual increase %</label>
+                    </div>
+                    <div class="col-50">
+                        <input type="text" id="sip%" name="sip%" placeholder="Annual sip increase %" required>
                     </div>
                 </div>
                 <div class="row">
@@ -85,19 +104,18 @@
                         <label for="invamt">Enter investment Amount</label>
                     </div>
                     <div class="col-50">
-                        <input type="text" id="invamount" name="invamount"
-                            placeholder="To be Invested..." required>
+                        <input type="text" id="invamount" name="invamount" placeholder="To be Invested..." required>
                     </div>
                 </div>
                 <div class="row">
-                    <input type="button" value="Plan Now" onclick="plan()"/>
+                    <input type="button" value="Plan Now" onclick="plan()" />
                 </div>
             </form>
         </div>
         <!-- result  -->
         <br><br>
         <div id="result" class="result2">
-            <div class="row" >
+            <div class="row">
                 <div class="column" id="r1">
                     <div class="card">
                         <img src="img/1.jpeg" alt="saving account" width="100" height="100">
@@ -108,17 +126,17 @@
                         <p id="1A">Total Amount invested : </p>
                         <p> Return Rate : 3.5%</p>
                         <p id="1B">Earned Interest : </p>
-                        <p ><button id="1C">Years taken :</button></p>
+                        <p><button id="1C">Years taken :</button></p>
                     </div>
                 </div>
 
                 <div class="column">
-                    <div class="card"id="r2">
+                    <div class="card" id="r2">
                         <img src="img/2.jpg" alt="fd account" width="100" height="100">
                         <h1>Fixed Deposit</h1>
                         <p class="title" id="2G">Goal Amount:</p>
                         <p class="title2">Risk : 1/5</p>
-                        <p class="title3">Short-Mid Term plan</p> 
+                        <p class="title3">Short-Mid Term plan</p>
                         <p id="2A">Total Amount invested : </p>
                         <p> Return Rate : 5.5% </p>
                         <p id="2B">Earned Interest : </p>
@@ -127,12 +145,12 @@
                 </div>
 
                 <div class="column">
-                    <div class="card"id="r3">
+                    <div class="card" id="r3">
                         <img src="img/3.jpg" alt="real estate" width="100" height="100">
                         <h1>Real Estate</h1>
                         <p class="title" id="3G">Goal Amount:</p>
                         <p class="title2">Risk : 3.5/5</p>
-                        <p class="title3">Long Term plan</p> 
+                        <p class="title3">Long Term plan</p>
                         <p id="3A">Total Amount invested : </p>
                         <p> Return Rate : 8% </p>
                         <p id="3B">Earned Interest : </p>
@@ -140,7 +158,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card"id="r4">
+                    <div class="card" id="r4">
                         <img src="img/4.png" alt="stocks" width="100" height="100">
                         <h1>Stocks</h1>
                         <p class="title" id="4G">Goal Amount:</p>
@@ -156,7 +174,7 @@
 
             <div class="row">
                 <div class="column">
-                    <div class="card"id="r5">
+                    <div class="card" id="r5">
                         <img src="img/7.png" alt="NPS account" width="100" height="100">
                         <h1>NPS</h1>
                         <p class="title" id="5G">Goal Amount:</p>
@@ -170,7 +188,7 @@
                 </div>
 
                 <div class="column">
-                    <div class="card"id="r6">
+                    <div class="card" id="r6">
                         <img src="img/6.jpg" alt="Equity fund" width="100" height="100">
                         <h1>Equity Fund</h1>
                         <p class="title" id="6G">Goal Amount:</p>
@@ -184,12 +202,12 @@
                 </div>
 
                 <div class="column">
-                    <div class="card"id="r7">
+                    <div class="card" id="r7">
                         <img src="img/5.jpg" alt="debt fund" width="100" height="100">
                         <h1>Debt Mutual Fund</h1>
                         <p class="title" id="7G">Goal Amount:</p>
                         <p class="title2">Risk : 2.5/5</p>
-                        <p class="title3">Short-Mid Term plan</p>  
+                        <p class="title3">Short-Mid Term plan</p>
                         <p id="7A">Total Amount invested : </p>
                         <p> Return Rate : 8% </p>
                         <p id="7B">Earned Interest : </p>
@@ -197,7 +215,7 @@
                     </div>
                 </div>
                 <div class="column">
-                    <div class="card"id="r8">
+                    <div class="card" id="r8">
                         <img src="img/8.png" alt="PPF" width="100" height="100">
                         <h1>PPF/EPF</h1>
                         <p class="title" id="8G">Goal Amount:</p>
@@ -217,22 +235,23 @@
     <br><br>
     <!-- Footer section  -->
     <footer class="footer">
-            <p>Disclaimer : All the interest rates considered here are average rates over the years and in good case scenerio</p>
-            <div className="copyrights">
-                <div className="container">
-                    <div className="footer-distributed">
-                        <div className="footer-left">
-                            <p className="footer-company-name">&copy; 2020 <a href="/index.html"> Finance Planner </a></p>
-                        </div>
+        <p>Disclaimer : All the interest rates considered here are average rates over the years and in good case
+            scenerio</p>
+        <div className="copyrights">
+            <div className="container">
+                <div className="footer-distributed">
+                    <div className="footer-left">
+                        <p className="footer-company-name">&copy; 2020 <a href="/index.html"> Finance Planner </a></p>
+                    </div>
 
-                        <div className="footer-right">
-                            <form method="get" action="#">
-                               <i className="fa fa-envelope-o"></i>
-                            </form>
-                        </div>
+                    <div className="footer-right">
+                        <form method="get" action="#">
+                            <i className="fa fa-envelope-o"></i>
+                        </form>
                     </div>
                 </div>
             </div>
+        </div>
     </footer>
 
 </body>
