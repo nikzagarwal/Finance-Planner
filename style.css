@@ -246,3 +246,30 @@ input[type=text], select, textarea{
     text-align: center;
 }
 
+
+
+/*for emi card*/
+.emi{
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  margin:0 30% 0 30%;
+  text-align: center;
+  
+}
+.emi button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: rgb(43, 41, 54);
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.emi a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
