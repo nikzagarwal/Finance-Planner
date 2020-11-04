@@ -44,8 +44,9 @@ function plan() {
   if (document.getElementById("type").value == "Sip")
     for (var i = 0; i < 8; i++) {
       var r = roi[i] / 1200;
+      
       var m = Math.ceil(Math.log((gamt * r / iamt / (1 + r)) + 1) / Math.log(1 + r));
-      var y = (m / 12).toFixed(0);
+      var y = Math.floor(m / 12);
       m = m % 12;
       var goal = document.getElementById(i + 1 + "G");
       goal.textContent = "Goal Amount : " + gamt;
@@ -68,7 +69,9 @@ function plan() {
       var m = 0;
       var siprate = document.getElementById("sip%").value;
       var iamttemp = iamt;
+      var total=0;
       while (a < gamt) {
+        total=total+iamt;
         a = a * (1 + r) + iamttemp;
         count++;
         if (count == 12) {
@@ -78,16 +81,17 @@ function plan() {
         
         m++;
       }
-     var y = (m / 12).toFixed(0);
+      console.log(m);
+     var y = Math.floor((m / 12));
       m = m % 12;
       var goal = document.getElementById(i + 1 + "G");
       goal.textContent = "Goal Amount : " + gamt;
 
       var res1 = document.getElementById(i + 1 + "A");
-      res1.textContent = "Total Amount invested : " + (iamt * (12 * y + m));
+      res1.textContent = "Total Amount invested : "+total;
 
       var res2 = document.getElementById(i + 1 + "B");
-      res2.textContent = "Earned Interest : " + (gamt - iamt * (12 * y + m));
+      res2.textContent = "Earned Interest : " + (gamt - total);
 
       var res3 = document.getElementById(i + 1 + "C");
       res3.textContent = "Time taken :" + y + " years  and " + m + "months";
