@@ -6,12 +6,16 @@ function header() {
     x.className = "topnav";
   }
 }
-
+var count = 0;
 function sipcall() {
-  // if(document.getElementById("stepsip").style.display=="none")
-  document.getElementById("stepsip").style.display = "block";
-  // else
-  // document.getElementById("stepsip").style.display="none";
+  if (count == 0) {
+    document.getElementById("stepsip").style.display = "block";
+    count++;
+  }
+  else {
+    document.getElementById("stepsip").style.display = "none";
+    count--;
+  }
 }
 
 function plan() {
@@ -29,13 +33,13 @@ function plan() {
       y = Math.floor(y);
 
       var goal = document.getElementById(i + 1 + "G");
-      goal.textContent = "Goal Amount : " + gamt;
+      goal.textContent = "Goal Amount : " + gamt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res1 = document.getElementById(i + 1 + "A");
-      res1.textContent = "Total Amount invested : " + iamt;
+      res1.textContent = "Total Amount invested : " + (iamt).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res2 = document.getElementById(i + 1 + "B");
-      res2.textContent = "Earned Interest : " + (gamt - iamt);
+      res2.textContent = "Earned Interest : " + (gamt - iamt).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res3 = document.getElementById(i + 1 + "C");
       res3.textContent = "Time taken :" + y + " years  and " + m + "months";
@@ -49,13 +53,13 @@ function plan() {
       var y = Math.floor(m / 12);
       m = m % 12;
       var goal = document.getElementById(i + 1 + "G");
-      goal.textContent = "Goal Amount : " + gamt;
+      goal.textContent = "Goal Amount : " + gamt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res1 = document.getElementById(i + 1 + "A");
-      res1.textContent = "Total Amount invested : " + (iamt * (12 * y + m));
+      res1.textContent = "Total Amount invested : " + (iamt * (12 * y + m)).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res2 = document.getElementById(i + 1 + "B");
-      res2.textContent = "Earned Interest : " + (gamt - iamt * (12 * y + m));
+      res2.textContent = "Earned Interest : " + (gamt - iamt * (12 * y + m)).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res3 = document.getElementById(i + 1 + "C");
       res3.textContent = "Time taken :" + y + " years  and " + m + "months";
@@ -81,17 +85,16 @@ function plan() {
 
         m++;
       }
-      console.log(m);
       var y = Math.floor((m / 12));
       m = m % 12;
       var goal = document.getElementById(i + 1 + "G");
-      goal.textContent = "Goal Amount : " + gamt;
+      goal.textContent = "Goal Amount : " + gamt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res1 = document.getElementById(i + 1 + "A");
-      res1.textContent = "Total Amount invested : " + total;
+      res1.textContent = "Total Amount invested : " + total.toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res2 = document.getElementById(i + 1 + "B");
-      res2.textContent = "Earned Interest : " + (gamt - total);
+      res2.textContent = "Earned Interest : " + (gamt - total).toString().replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
       var res3 = document.getElementById(i + 1 + "C");
       res3.textContent = "Time taken :" + y + " years  and " + m + "months";
@@ -108,22 +111,22 @@ function calculateloan() {
 
 
   var goal = document.getElementById("eA");
-  goal.textContent = "Loan Amount : " + amt;
+  goal.textContent = "Loan Amount : " + amt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
   var goal = document.getElementById("eB");
   goal.textContent = "Loan Tenure : " + y;
-  y=Math.floor(y*12);
+  y = Math.floor(y * 12);
   var goal = document.getElementById("eC");
-  goal.textContent = "Interest Rate : " + r+"%";
-  r=r/1200;
-  var install=(amt*r*((1+r)**y)/(((1+r)**y)-1)).toFixed(2);
+  goal.textContent = "Interest Rate : " + r + "%";
+  r = r / 1200;
+  var install = (amt * r * ((1 + r) ** y) / (((1 + r) ** y) - 1)).toFixed(2);
   var goal = document.getElementById("eF");
-  goal.textContent = "Total Amount paid : " + (install*y).toFixed(2);
+  goal.textContent = "Total Amount paid : " + (install * y).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
   var goal = document.getElementById("eD");
-  goal.textContent = "Total Interest paid : " + (install*y-amt).toFixed(2) ;
+  goal.textContent = "Total Interest paid : " + (install * y - amt).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
   var goal = document.getElementById("eE");
-  goal.textContent = "Monthly Installment : " + install;
+  goal.textContent = "Monthly Installment : " + install.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
 }
 
@@ -138,22 +141,22 @@ function calculatesip() {
 
 
   var goal = document.getElementById("eA");
-  goal.textContent = "Monthly Installment: " + amt;
+  goal.textContent = "Monthly Installment: " + amt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
   var goal = document.getElementById("eB");
   goal.textContent = "Investment Tenure : " + y;
-  y=Math.floor(y*12);
+  y = Math.floor(y * 12);
   var goal = document.getElementById("eC");
-  goal.textContent = "Interest Rate : " + r +"%";
-  r=r/1200;
-  
-  var finalamt=(amt*((1+r)**y-1)*(1+r)/r).toFixed(2);
+  goal.textContent = "Interest Rate : " + r + "%";
+  r = r / 1200;
+
+  var finalamt = (amt * ((1 + r) ** y - 1) * (1 + r) / r).toFixed(2);
 
   var goal = document.getElementById("eD");
-  goal.textContent = "Total Interest earned : " + (finalamt-amt).toFixed(2) ;
+  goal.textContent = "Total Interest earned : " + (finalamt - amt).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
   var goal = document.getElementById("eE");
-  goal.textContent = "Amount Accumulated : " + finalamt;
+  goal.textContent = "Amount Accumulated : " + finalamt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
 }
 
@@ -166,34 +169,33 @@ function calculate() {
   var rage = parseFloat(document.getElementById("rage").value);
 
   var goal = document.getElementById("eA");
-  goal.textContent = "Current Monthly Expense : " + amt;
+  goal.textContent = "Current Monthly Expense : " + amt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
   var goal = document.getElementById("eB");
   goal.textContent = "Current Age : " + cage;
-  
+
   var goal = document.getElementById("eC");
   goal.textContent = "Retirement Age : " + rage;
-  
-  var exp=amt*(1+0.06)**(rage-cage);
+
+  var exp = amt * (1 + 0.06) ** (rage - cage);
 
   var goal = document.getElementById("eD");
-  goal.textContent = "Monthly Expense at age of " +rage+ " at 6% inflation : " + (exp).toFixed(2) ;
+  goal.textContent = "Monthly Expense at age of " + rage + " at 6% inflation : " + (exp).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
-  var totalamt=0;
-  for(var i=rage;i<=80;i++)
-  {
+  var totalamt = 0;
+  for (var i = rage; i <= 80; i++) {
     // console.log(exp);
-    totalamt+=exp*12;
-    exp=exp*1.02;
-  } 
+    totalamt += exp * 12;
+    exp = exp * 1.02;
+  }
   var goal = document.getElementById("eE");
-  goal.textContent = "Total money required from age "+rage+" till age of 80 :" + totalamt.toFixed(2);
-  r=0.08/12;
-  y=(rage-cage)*12;
-  var monthlyamt=(totalamt/(((1+r)**y-1)*(1+r)/r)).toFixed(2);
+  goal.textContent = "Total money required from age " + rage + " till age of 80 :" + totalamt.toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  r = 0.08 / 12;
+  y = (rage - cage) * 12;
+  var monthlyamt = (totalamt / (((1 + r) ** y - 1) * (1 + r) / r)).toFixed(2);
   var goal = document.getElementById("eF");
-  goal.textContent = "Monthly investment required at avg(8%) interest till retirement and 4% after that : " + monthlyamt;
+  goal.textContent = "Monthly investment required at avg(8%) interest till retirement and 4% after that : " + monthlyamt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
-  
+
 
 }
