@@ -153,7 +153,7 @@ function calculatesip() {
   var finalamt = (amt * ((1 + r) ** y - 1) * (1 + r) / r).toFixed(2);
 
   var goal = document.getElementById("eD");
-  goal.textContent = "Total Interest earned : " + (finalamt - amt).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
+  goal.textContent = "Total Interest earned : " + (finalamt - amt*y).toFixed(2).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
 
   var goal = document.getElementById("eE");
   goal.textContent = "Amount Accumulated : " + finalamt.replace(/(\d)(?=(\d\d\d)+(?!\d))/g, "$1,");
